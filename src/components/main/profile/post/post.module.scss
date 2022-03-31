@@ -1,0 +1,15 @@
+.post {
+  display: flex;
+  gap: 20px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid lightgray;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000;
+}
+.img {
+  width: 50px;
+  border-radius: 10px;
+  border: 2px solid black;
+}

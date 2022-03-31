@@ -1,0 +1,26 @@
+.navBar {
+  grid-area: n;
+  min-height: 100vh;
+  border-right: 2px solid black;
+}
+.navBar-items {
+  margin: 2rem 0;
+}
+.navBar-item,
+.navBar-setting {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-size: 20px;
+  margin-left: 2rem;
+}
+.navBar-item:hover,
+.navBar-setting:hover {
+  background-color: rgb(128, 128, 128, 0.3);
+  border-radius: 10px;
+}

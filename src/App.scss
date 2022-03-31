@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+    "h h"
+    "n m";
+  background-color: #f0f2f5;
+}

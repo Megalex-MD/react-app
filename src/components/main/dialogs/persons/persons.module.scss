@@ -1,0 +1,11 @@
+.person {
+  text-decoration: none;
+  color: #000000;
+  padding: 0.5rem;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.person:hover {
+  background-color: rgba(127, 255, 212, 0.445);
+}
