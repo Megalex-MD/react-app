@@ -32,7 +32,7 @@ function App(props) {
       <div className="wrapper">
         <Header />
         <Navbar />
-        <Main dialogsData={props.dialogsData} messageData={props.messageData} personData={props.personData} />
+        <Main mainStates={props.states.mainPage} />
       </div>
     </BrowserRouter>
   );

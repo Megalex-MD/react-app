@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from './navbar.module.scss'
 import icons from './Icons/icons'
 
-const Navbar = () => {
+const Navbar = (props) => {
 
   return (
     <nav className={style.navBar}>
