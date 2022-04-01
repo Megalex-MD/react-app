@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import s from './navbar.module.scss'
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import style from './navbar.module.scss'
 
 const Navbar = () => {
   let user = <FontAwesomeIcon icon="fa-solid fa-user" color='rgb(72, 72, 255, 0.7)' />
@@ -11,16 +11,16 @@ const Navbar = () => {
   let settings = <FontAwesomeIcon icon="fa-solid fa-gear" color="rgb(72, 72, 255, 0.7)" />
 
   return (
-    <nav className={s.navBar}>
-      <div className={s[`navBar-items`]}>
-        <NavLink to='/profile' className={s[`navBar-item`]}>{user}Profile</NavLink>
-        <NavLink to='/dialogs' className={s[`navBar-item`]}>{message}Messages</NavLink>
-        <NavLink to='/news' className={s[`navBar-item`]}>{news}News</NavLink>
-        <NavLink to='music' className={s[`navBar-item`]}>{music}Music</NavLink>
+    <nav className={style.navBar}>
+      <div className={style[`navBar-items`]}>
+        <Link to='/profile' className={style[`navBar-item`]}>{user}Profile</Link>
+        <Link to='/dialogs' className={style[`navBar-item`]}>{message}Messages</Link>
+        <Link to='/news' className={style[`navBar-item`]}>{news}News</Link>
+        <Link to='music' className={style[`navBar-item`]}>{music}Music</Link>
       </div>
 
       <div>
-        <NavLink to='/settings' className={s[`navBar-setting`]}>{settings}Settings</NavLink>
+        <Link to='/settings' className={style[`navBar-setting`]}>{settings}Settings</Link>
       </div>
     </nav>
   )

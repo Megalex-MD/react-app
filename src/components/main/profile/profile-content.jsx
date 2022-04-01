@@ -5,14 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
-let personData = {
-  name: 'Dima',
-  birthDate: '12.07.1993',
-  city: 'Moldova, Chisinau',
-  education: 'FrontEnd Developer'
-}
-
-const ProfileContent = () => {
+const ProfileContent = (props) => {
   return (
     <div className={s.profileContent}>
       <div>
@@ -23,10 +16,10 @@ const ProfileContent = () => {
         <div className={s['profile-info']}>
           <div><img className={s['profile-info__img']} src='https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg' /></div>
           <div className={s['profile-info__descript']}>
-            <p>My name: {personData.name}</p>
-            <p>Date of birth: {personData.birthDate}</p>
-            <p>City: {personData.city}</p>
-            <p>Education: {personData.education}</p>
+            <p>My name: {props.personData.name}</p>
+            <p>Date of birth: {props.personData.birthDate}</p>
+            <p>City: {props.personData.city}</p>
+            <p>Education: {props.personData.education}</p>
           </div>
         </div>
         <div className={s['profile-posts']}>
