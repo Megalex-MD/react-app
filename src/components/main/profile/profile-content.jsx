@@ -6,6 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
 const ProfileContent = (props) => {
+  let newPost = React.createRef();
+
+  const addPost = () => {
+    let text = newPost.current.value;
+    console.log(text)
+    props.addPost(text)
+  }
+
+  let postElement = props.postText.map(p => <Post message={p.message} />)
+
   return (
     <div className={s.profileContent}>
       <div>
@@ -23,15 +33,11 @@ const ProfileContent = (props) => {
           </div>
         </div>
         <div className={s['profile-posts']}>
-          <textarea rows="2" cols="80" placeholder='My posts'></textarea>
-          <button className={s.profileBtn}>{check}</button>
+          <textarea ref={newPost} rows="2" cols="80" placeholder='My posts'></textarea>
+          <button onClick={addPost} className={s.profileBtn}>{check}</button>
         </div>
       </div>
-
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {postElement}
     </div>
   )
 }

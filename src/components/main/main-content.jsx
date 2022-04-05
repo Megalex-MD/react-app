@@ -12,8 +12,15 @@ const Main = (props) => {
     <main>
       <div className={style['main-content']}>
         <Routes>
-          <Route path='/profile' element={<ProfileContent personData={props.mainStates.profilePage.personData} />} />
-          <Route path='/dialogs' element={<Dialogs dialogsData={props.mainStates.dialogsPage.dialogsData} messageData={props.mainStates.dialogsPage.messageData} />} />
+          <Route path='/profile' element={<ProfileContent
+            personData={props.mainStates.profilePage.personData}
+            postText={props.mainStates.profilePage.postText}
+            addPost={props.addPost} />} />
+
+          <Route path='/dialogs' element={<Dialogs
+            dialogsData={props.mainStates.dialogsPage.dialogsData}
+            messageData={props.mainStates.dialogsPage.messageData} />} />
+
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
           <Route path='/settings' element={<Settings />} />

@@ -7,7 +7,13 @@ let states = {
         birthDate: '12.07.1993',
         city: 'Moldova, Chisinau',
         education: 'FrontEnd Developer'
-      }
+      },
+
+      postText: [
+        { id: 1, message: 'Hellow' },
+        { id: 2, message: 'react app' },
+        { id: 3, message: 'some post' }
+      ]
     },
 
     dialogsPage: {
@@ -26,7 +32,14 @@ let states = {
       ],
     },
   },
+}
 
+export const addPost = (postMessage) => {
+  let newPost = {
+    id: 5,
+    message: postMessage
+  }
+  states.mainPage.profilePage.postText.push(newPost)
 }
 
 export default states
