@@ -1,3 +1,4 @@
+import { rerender } from "../rerender"
 
 let states = {
   mainPage: {
@@ -40,6 +41,7 @@ export const addPost = (postMessage) => {
     message: postMessage
   }
   states.mainPage.profilePage.postText.push(newPost)
+  rerender(states)
 }
 
 export default states

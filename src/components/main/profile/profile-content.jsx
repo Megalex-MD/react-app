@@ -10,8 +10,8 @@ const ProfileContent = (props) => {
 
   const addPost = () => {
     let text = newPost.current.value;
-    console.log(text)
-    props.addPost(text)
+    props.addPost(text);
+    newPost.current.value = ''
   }
 
   let postElement = props.postText.map(p => <Post message={p.message} />)
