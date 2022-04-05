@@ -14,7 +14,9 @@ let states = {
         { id: 1, message: 'Hellow' },
         { id: 2, message: 'react app' },
         { id: 3, message: 'some post' }
-      ]
+      ],
+
+      newPost: '',
     },
 
     dialogsPage: {
@@ -35,13 +37,22 @@ let states = {
   },
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage
+    message: states.mainPage.profilePage.newPost
   }
+
   states.mainPage.profilePage.postText.push(newPost)
+  states.mainPage.profilePage.newPost = ''
   rerender(states)
+}
+
+export const newPostText = (textareaText) => {
+  states.mainPage.profilePage.newPost = textareaText;
+
+  rerender(states)
+  console.log(textareaText)
 }
 
 export default states

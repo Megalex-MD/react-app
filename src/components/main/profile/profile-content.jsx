@@ -8,10 +8,14 @@ let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 const ProfileContent = (props) => {
   let newPost = React.createRef();
 
-  const addPost = () => {
+  let addPost = () => {
     let text = newPost.current.value;
     props.addPost(text);
-    newPost.current.value = ''
+  }
+
+  const newText = () => {
+    let text = newPost.current.value;
+    props.newPostText(text)
   }
 
   let postElement = props.postText.map(p => <Post message={p.message} />)
@@ -33,12 +37,12 @@ const ProfileContent = (props) => {
           </div>
         </div>
         <div className={s['profile-posts']}>
-          <textarea ref={newPost} rows="2" cols="80" placeholder='My posts'></textarea>
+          <textarea onChange={newText} ref={newPost} value={props.newPost} rows="2" cols="80" placeholder='My posts'></textarea>
           <button onClick={addPost} className={s.profileBtn}>{check}</button>
         </div>
       </div>
       {postElement}
-    </div>
+    </div >
   )
 }
 

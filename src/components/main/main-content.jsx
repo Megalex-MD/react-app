@@ -15,7 +15,9 @@ const Main = (props) => {
           <Route path='/profile' element={<ProfileContent
             personData={props.mainStates.profilePage.personData}
             postText={props.mainStates.profilePage.postText}
-            addPost={props.addPost} />} />
+            newPost={props.mainStates.profilePage.newPost}
+            addPost={props.addPost}
+            newPostText={props.newPostText} />} />
 
           <Route path='/dialogs' element={<Dialogs
             dialogsData={props.mainStates.dialogsPage.dialogsData}
