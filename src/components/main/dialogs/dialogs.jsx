@@ -1,11 +1,27 @@
 import React from "react";
-import style from "./dialogs.module.scss"
+import style from "./dialogs.module.scss";
 import Person from "./persons/persons";
-import Message from "./messages/messages"
+import Message from "./messages/messages";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
 const Dialogs = (props) => {
-  let dialogsPerson = props.dialogsData.map(d => <Person name={d.name} id={d.id} />)
-  let dialogsMessage = props.messageData.map(m => <Message message={m.message} />)
+
+  let addMessage = React.createRef();
+
+  let addNewMessage = () => {
+    let text = addMessage.current.value;
+    props.addMessage(text)
+  }
+
+  let newMessageText = () => {
+    let text = addMessage.current.value;
+    props.newMessageText(text)
+  }
+
+  let dialogsPerson = props.dialogsPage.dialogsData.map(d => <Person name={d.name} id={d.id} />)
+  let dialogsMessage = props.dialogsPage.messageData.map(m => <Message message={m.message} />)
 
   return (
     <div className={style.dialogs}>
@@ -13,8 +29,14 @@ const Dialogs = (props) => {
         {dialogsPerson}
       </div>
 
-      <div className={style.messages}>
-        {dialogsMessage}
+      <div className={style.messagesContent}>
+        <div className={style.messages}>
+          {dialogsMessage}
+        </div>
+        <div className={style.sendMessage}>
+          <textarea onChange={newMessageText} ref={addMessage} value={props.dialogsPage.newMessage} className={style.textarea} rows="2" cols="80"></textarea>
+          <button onClick={addNewMessage} className={style.textareaBtn}>{check}</button>
+        </div>
       </div>
     </div >
   )

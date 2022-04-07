@@ -6,14 +6,44 @@
 .persons {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   border-right: 1px solid black;
   padding: 2rem 0;
 }
 
-.messages {
+.messagesContent {
   padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.messages{
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
+.sendMessage{
+  position: relative;
+}
+
+.textareaBtn{
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  padding: 5px 15px;
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: 0.5s;
+}
+.textareaBtn:hover{
+  color: #ffffff;
+  background-color: green;
+  transform: translate(1.5px, 1.5px);
+  cursor: pointer;
+}
+

@@ -20,8 +20,9 @@ const Main = (props) => {
             newPostText={props.newPostText} />} />
 
           <Route path='/dialogs' element={<Dialogs
-            dialogsData={props.mainStates.dialogsPage.dialogsData}
-            messageData={props.mainStates.dialogsPage.messageData} />} />
+            dialogsPage={props.mainStates.dialogsPage}
+            addMessage={props.addMessage}
+            newMessageText={props.newMessageText} />} />
 
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />

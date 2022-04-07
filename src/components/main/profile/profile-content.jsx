@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
 const ProfileContent = (props) => {
+
   let newPost = React.createRef();
 
   let addPost = () => {

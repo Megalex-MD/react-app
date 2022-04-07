@@ -33,6 +33,8 @@ let states = {
         { message: 'Lorem, ipsum.' },
         { message: 'Hy' }
       ],
+
+      newMessage: ''
     },
   },
 }
@@ -46,6 +48,7 @@ export const addPost = () => {
   states.mainPage.profilePage.postText.push(newPost)
   states.mainPage.profilePage.newPost = ''
   rerender(states)
+  console.log(newPost)
 }
 
 export const newPostText = (textareaText) => {
@@ -55,4 +58,18 @@ export const newPostText = (textareaText) => {
   console.log(textareaText)
 }
 
+export const addMessage = () => {
+  let newMessage = {
+    message: states.mainPage.dialogsPage.newMessage
+  }
+  states.mainPage.dialogsPage.messageData.push(newMessage)
+  states.mainPage.dialogsPage.newMessage = ''
+  rerender(states)
+}
+
+export const newMessageText = (textareaText) => {
+  states.mainPage.dialogsPage.newMessage = textareaText
+  rerender(states)
+
+}
 export default states
