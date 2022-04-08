@@ -1,4 +1,4 @@
-import { rerender } from "../rerender"
+let rerender = () => ''
 
 let states = {
   mainPage: {
@@ -44,18 +44,14 @@ export const addPost = () => {
     id: 5,
     message: states.mainPage.profilePage.newPost
   }
-
   states.mainPage.profilePage.postText.push(newPost)
   states.mainPage.profilePage.newPost = ''
   rerender(states)
-  console.log(newPost)
 }
 
 export const newPostText = (textareaText) => {
   states.mainPage.profilePage.newPost = textareaText;
-
   rerender(states)
-  console.log(textareaText)
 }
 
 export const addMessage = () => {
@@ -72,4 +68,7 @@ export const newMessageText = (textareaText) => {
   rerender(states)
 
 }
+
+export const subscribe = (observer) => rerender = observer
+
 export default states
