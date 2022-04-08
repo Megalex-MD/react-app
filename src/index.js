@@ -1,21 +1,22 @@
 import './index.scss';
-import states, { subscribe } from './states/states';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { addPost, newPostText, addMessage, newMessageText } from './states/states';
+import store from './states/states';
+
 
 export const rerender = (states) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App states={states} addPost={addPost} newPostText={newPostText} addMessage={addMessage} newMessageText={newMessageText} />
+      <App states={states} addPost={store.addPost.bind(store)} newPostText={store.newPostText.bind(store)}
+        addMessage={store.addMessage.bind(store)} newMessageText={store.newMessageText.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
-rerender(states)
-subscribe(rerender)
+rerender(store.getState())
+store.subscribe(rerender)
 
 reportWebVitals();
 
