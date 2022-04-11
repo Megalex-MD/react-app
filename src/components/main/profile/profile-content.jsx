@@ -2,6 +2,7 @@ import React from "react"
 import Post from "./post/post"
 import s from './profile.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ADD_POST, NEW_POST_TEXT_ACTION } from "../../../states/states";
 
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
@@ -10,12 +11,12 @@ const ProfileContent = (props) => {
   let newPost = React.createRef();
 
   let addPost = () => {
-    props.dispatch({ type: 'ADD_POST' });
+    props.dispatch(ADD_POST());
   }
 
   const newText = () => {
     let text = newPost.current.value;
-    props.dispatch({ type: 'NEW_POST_TEXT', textareaText: text })
+    props.dispatch(NEW_POST_TEXT_ACTION(text))
   }
 
   let postElement = props.postText.map(p => <Post message={p.message} />)

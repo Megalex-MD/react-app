@@ -3,6 +3,7 @@ import style from "./dialogs.module.scss";
 import Person from "./persons/persons";
 import Message from "./messages/messages";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ADD_MESSAGE, NEW_MESSAGE_TEXT } from "../../../states/states";
 
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
@@ -11,13 +12,12 @@ const Dialogs = (props) => {
   let addMessage = React.createRef();
 
   let addNewMessage = () => {
-    // let text = addMessage.current.value;
-    props.dispatch({ type: 'ADD_MESSAGE' })
+    props.dispatch(ADD_MESSAGE())
   }
 
   let newMessageText = () => {
     let text = addMessage.current.value;
-    props.dispatch({ type: 'NEW_MESSAGE_TEXT', textareaText: text })
+    props.dispatch(NEW_MESSAGE_TEXT(text))
   }
 
   let dialogsPerson = props.dialogsPage.dialogsData.map(d => <Person name={d.name} id={d.id} />)

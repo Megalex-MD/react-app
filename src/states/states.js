@@ -75,5 +75,9 @@ let store = {
     }
   }
 }
+export const ADD_POST = () => ({ type: 'ADD_POST' })
+export const NEW_POST_TEXT_ACTION = (text) => ({ type: 'NEW_POST_TEXT', textareaText: text })
+export const ADD_MESSAGE = () => ({ type: 'ADD_MESSAGE' })
+export const NEW_MESSAGE_TEXT = (text) => ({ type: 'NEW_MESSAGE_TEXT', textareaText: text })
 
 export default store
