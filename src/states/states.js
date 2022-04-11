@@ -41,36 +41,39 @@ let store = {
     return this._states
   },
   rerender() { '' },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._states.mainPage.profilePage.newPost
-    }
-    this._states.mainPage.profilePage.postText.push(newPost)
-    this._states.mainPage.profilePage.newPost = ''
-    this._rerender(this._states)
-  },
-
-  newPostText(textareaText) {
-    this._states.mainPage.profilePage.newPost = textareaText;
-    this._rerender(this._states)
-  },
-
-  addMessage() {
-    let newMessage = {
-      message: this._states.mainPage.dialogsPage.newMessage
-    }
-    this._states.mainPage.dialogsPage.messageData.push(newMessage)
-    this._states.mainPage.dialogsPage.newMessage = ''
-    this._rerender(this._states)
-  },
-
-  newMessageText(textareaText) {
-    this._states.mainPage.dialogsPage.newMessage = textareaText
-    this._rerender(this._states)
-  },
 
   subscribe(observer) { this._rerender = observer },
+
+  dispatch(action) {
+    if (action.type === 'ADD_POST') {
+      let newPost = {
+        id: 5,
+        message: this._states.mainPage.profilePage.newPost
+      }
+      this._states.mainPage.profilePage.postText.push(newPost)
+      this._states.mainPage.profilePage.newPost = ''
+      this._rerender(this._states)
+    }
+    else if
+      (action.type === 'NEW_POST_TEXT') {
+      this._states.mainPage.profilePage.newPost = action.textareaText;
+      this._rerender(this._states)
+    }
+    else if
+      (action.type === 'ADD_MESSAGE') {
+      let newMessage = {
+        message: this._states.mainPage.dialogsPage.newMessage
+      }
+      this._states.mainPage.dialogsPage.messageData.push(newMessage)
+      this._states.mainPage.dialogsPage.newMessage = ''
+      this._rerender(this._states)
+    }
+    else if
+      (action.type === 'NEW_MESSAGE_TEXT') {
+      this._states.mainPage.dialogsPage.newMessage = action.textareaText
+      this._rerender(this._states)
+    }
+  }
 }
 
 export default store

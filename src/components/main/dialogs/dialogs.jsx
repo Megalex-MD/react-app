@@ -11,13 +11,13 @@ const Dialogs = (props) => {
   let addMessage = React.createRef();
 
   let addNewMessage = () => {
-    let text = addMessage.current.value;
-    props.addMessage(text)
+    // let text = addMessage.current.value;
+    props.dispatch({ type: 'ADD_MESSAGE' })
   }
 
   let newMessageText = () => {
     let text = addMessage.current.value;
-    props.newMessageText(text)
+    props.dispatch({ type: 'NEW_MESSAGE_TEXT', textareaText: text })
   }
 
   let dialogsPerson = props.dialogsPage.dialogsData.map(d => <Person name={d.name} id={d.id} />)

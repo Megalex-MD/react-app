@@ -10,13 +10,12 @@ const ProfileContent = (props) => {
   let newPost = React.createRef();
 
   let addPost = () => {
-    let text = newPost.current.value;
-    props.addPost(text);
+    props.dispatch({ type: 'ADD_POST' });
   }
 
   const newText = () => {
     let text = newPost.current.value;
-    props.newPostText(text)
+    props.dispatch({ type: 'NEW_POST_TEXT', textareaText: text })
   }
 
   let postElement = props.postText.map(p => <Post message={p.message} />)

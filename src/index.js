@@ -9,8 +9,7 @@ import store from './states/states';
 export const rerender = (states) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App states={states} addPost={store.addPost.bind(store)} newPostText={store.newPostText.bind(store)}
-        addMessage={store.addMessage.bind(store)} newMessageText={store.newMessageText.bind(store)} />
+      <App states={states} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById('root')
   );

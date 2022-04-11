@@ -13,10 +13,7 @@ function App(props) {
         <Header />
         <Navbar />
         <Main mainStates={props.states.mainPage}
-          addPost={props.addPost}
-          newPostText={props.newPostText}
-          addMessage={props.addMessage}
-          newMessageText={props.newMessageText} />
+          dispatch={props.dispatch} />
       </div>
     </BrowserRouter>
   );

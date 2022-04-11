@@ -16,13 +16,11 @@ const Main = (props) => {
             personData={props.mainStates.profilePage.personData}
             postText={props.mainStates.profilePage.postText}
             newPost={props.mainStates.profilePage.newPost}
-            addPost={props.addPost}
-            newPostText={props.newPostText} />} />
+            dispatch={props.dispatch} />} />
 
           <Route path='/dialogs' element={<Dialogs
             dialogsPage={props.mainStates.dialogsPage}
-            addMessage={props.addMessage}
-            newMessageText={props.newMessageText} />} />
+            dispatch={props.dispatch} />} />
 
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
