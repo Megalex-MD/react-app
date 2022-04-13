@@ -1,3 +1,11 @@
+import dialogsPage from "./reducer/dialogs-reducer"
+import profilePage from "./reducer/profile-reducer"
+
+const ADD_POST = 'ADD_POST'
+const NEW_POST_TEXT = 'NEW_POST_TEXT'
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const NEW_MESSAGE_TEXT = 'NEW_MESSAGE_TEXT'
+
 let store = {
   _states: {
     mainPage: {
@@ -45,39 +53,10 @@ let store = {
   subscribe(observer) { this._rerender = observer },
 
   dispatch(action) {
-    if (action.type === 'ADD_POST') {
-      let newPost = {
-        id: 5,
-        message: this._states.mainPage.profilePage.newPost
-      }
-      this._states.mainPage.profilePage.postText.push(newPost)
-      this._states.mainPage.profilePage.newPost = ''
-      this._rerender(this._states)
-    }
-    else if
-      (action.type === 'NEW_POST_TEXT') {
-      this._states.mainPage.profilePage.newPost = action.textareaText;
-      this._rerender(this._states)
-    }
-    else if
-      (action.type === 'ADD_MESSAGE') {
-      let newMessage = {
-        message: this._states.mainPage.dialogsPage.newMessage
-      }
-      this._states.mainPage.dialogsPage.messageData.push(newMessage)
-      this._states.mainPage.dialogsPage.newMessage = ''
-      this._rerender(this._states)
-    }
-    else if
-      (action.type === 'NEW_MESSAGE_TEXT') {
-      this._states.mainPage.dialogsPage.newMessage = action.textareaText
-      this._rerender(this._states)
-    }
+    this._states.mainPage.profilePage = profilePage(this._states.mainPage.profilePage, action)
+    this._states.mainPage.dialogsPage = dialogsPage(this._states.mainPage.dialogsPage, action)
+    this._rerender(this._states)
   }
 }
-export const ADD_POST = () => ({ type: 'ADD_POST' })
-export const NEW_POST_TEXT_ACTION = (text) => ({ type: 'NEW_POST_TEXT', textareaText: text })
-export const ADD_MESSAGE = () => ({ type: 'ADD_MESSAGE' })
-export const NEW_MESSAGE_TEXT = (text) => ({ type: 'NEW_MESSAGE_TEXT', textareaText: text })
 
 export default store

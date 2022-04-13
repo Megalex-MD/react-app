@@ -2,7 +2,9 @@ import React from "react"
 import Post from "./post/post"
 import s from './profile.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ADD_POST, NEW_POST_TEXT_ACTION } from "../../../states/states";
+import { ADD_POST_ACTION, NEW_POST_TEXT_ACTION } from "../../../states/reducer/profile-reducer";
+
+
 
 let check = <FontAwesomeIcon icon="fa-solid fa-check" />
 
@@ -11,7 +13,7 @@ const ProfileContent = (props) => {
   let newPost = React.createRef();
 
   let addPost = () => {
-    props.dispatch(ADD_POST());
+    props.dispatch(ADD_POST_ACTION());
   }
 
   const newText = () => {
