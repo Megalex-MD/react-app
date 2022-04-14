@@ -13,13 +13,13 @@ const Main = (props) => {
       <div className={style['main-content']}>
         <Routes>
           <Route path='/profile' element={<ProfileContent
-            personData={props.mainStates.profilePage.personData}
-            postText={props.mainStates.profilePage.postText}
-            newPost={props.mainStates.profilePage.newPost}
+            personData={props.states.profilePage.personData}
+            postText={props.states.profilePage.postText}
+            newPost={props.states.profilePage.newPost}
             dispatch={props.dispatch} />} />
 
           <Route path='/dialogs' element={<Dialogs
-            dialogsPage={props.mainStates.dialogsPage}
+            dialogsPage={props.states.dialogsPage}
             dispatch={props.dispatch} />} />
 
           <Route path='/news' element={<News />} />

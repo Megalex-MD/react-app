@@ -31,7 +31,7 @@ const ProfileContent = (props) => {
 
       <div className={s.profile}>
         <div className={s['profile-info']}>
-          <div><img className={s['profile-info__img']} src='https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg' /></div>
+          <div><img className={s['profile-info__img']} src='https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg' alt='profile-img' /></div>
           <div className={s['profile-info__descript']}>
             <p>My name: {props.personData.name}</p>
             <p>Date of birth: {props.personData.birthDate}</p>

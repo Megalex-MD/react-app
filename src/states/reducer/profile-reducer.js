@@ -1,7 +1,24 @@
 const ADD_POST = 'ADD_POST';
 const NEW_POST_TEXT = 'NEW_POST_TEXT'
 
-const profilePage = (states, action) => {
+let defStates = {
+  personData: {
+    name: 'Dima',
+    birthDate: '12.07.1993',
+    city: 'Moldova, Chisinau',
+    education: 'FrontEnd Developer'
+  },
+
+  postText: [
+    { id: 1, message: 'Hellow' },
+    { id: 2, message: 'react app' },
+    { id: 3, message: 'some post' }
+  ],
+
+  newPost: '',
+}
+
+const profileReducer = (states = defStates, action) => {
   switch (action.type) {
     case ADD_POST: let newPost = {
       id: 5,
@@ -19,5 +36,5 @@ const profilePage = (states, action) => {
 export const ADD_POST_ACTION = () => ({ type: ADD_POST });
 export const NEW_POST_TEXT_ACTION = (text) => ({ type: NEW_POST_TEXT, textareaText: text })
 
-export default profilePage
+export default profileReducer
 

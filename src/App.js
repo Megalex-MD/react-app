@@ -7,12 +7,13 @@ import Navbar from './components/navbar/navbar';
 import { BrowserRouter } from "react-router-dom";
 
 function App(props) {
+  debugger
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
         <Navbar />
-        <Main mainStates={props.states.mainPage}
+        <Main states={props.states}
           dispatch={props.dispatch} />
       </div>
     </BrowserRouter>

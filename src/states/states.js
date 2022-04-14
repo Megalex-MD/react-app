@@ -1,11 +1,6 @@
 import dialogsPage from "./reducer/dialogs-reducer"
 import profilePage from "./reducer/profile-reducer"
 
-const ADD_POST = 'ADD_POST'
-const NEW_POST_TEXT = 'NEW_POST_TEXT'
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const NEW_MESSAGE_TEXT = 'NEW_MESSAGE_TEXT'
-
 let store = {
   _states: {
     mainPage: {
